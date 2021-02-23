@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ClinkedIn.Models
+namespace ClinkedIn.DataAccess
 {
-    public class Member
+    public class ServiceRepository
     {
     }
 }
