@@ -19,7 +19,7 @@ namespace ClinkedIn.DataAccess
             return _allMembers;
         }
 
-        public void AddLoaf(Member member)
+        public void AddAMember(Member member)
         {
             var biggestExistingId = _allMembers.Max(memb => memb.InmateId);
             member.InmateId = biggestExistingId + 1;
