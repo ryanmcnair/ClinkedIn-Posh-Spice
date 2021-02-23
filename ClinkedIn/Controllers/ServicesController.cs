@@ -9,7 +9,7 @@ namespace ClinkedIn.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MemberController : ControllerBase
+    public class ServicesController : ControllerBase
     {
     }
 }
