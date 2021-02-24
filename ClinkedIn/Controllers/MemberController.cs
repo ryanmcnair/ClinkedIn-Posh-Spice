@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClinkedIn.DataAccess;
 
 namespace ClinkedIn.Controllers
 {
@@ -11,6 +12,12 @@ namespace ClinkedIn.Controllers
     [ApiController]
     public class MemberController : ControllerBase
     {
+        MemberRepository _memberRepo;
+
+        public MemberController()
+        {
+            _memberRepo = new MemberRepository();
+        }
     }
 }
 
