@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClinkedIn.Controllers
 {
-    [Route("api/MemberController")]
+    [Route("api/Members")]
     [ApiController]
     public class MemberController : ControllerBase
     {
