@@ -19,6 +19,7 @@ namespace ClinkedIn.Controllers
             _memberRepo = new MemberRepository();
         }
 
+        [HttpGet]
         public IActionResult GetAllMembers()
         {
             return Ok(_memberRepo.GetAllMembers());
