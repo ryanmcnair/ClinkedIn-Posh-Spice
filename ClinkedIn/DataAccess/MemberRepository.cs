@@ -19,6 +19,12 @@ namespace ClinkedIn.DataAccess
                        new Interest{ Id = 2, Interests = "Playing Solitare", Type= "Cards"},
                        new Interest{ Id = 3, Interests = "Lifting Weights", Type= "Exercise"},
                     },
+                    MemberServices = new List<Service>
+                    {
+                        new Service{ Id = 1, Services = "Cleaning blood"},
+                        new Service{ Id = 2, Services = "Creating blood"},
+                        new Service{ Id = 3, Services = "Starting Fight"}
+                    }
                    
                 },
                 new Member {
@@ -29,6 +35,12 @@ namespace ClinkedIn.DataAccess
                        new Interest{ Id = 4, Interests = "Slam Poetry", Type= "Art"},
                        new Interest{ Id = 2, Interests = "Playing Solitare", Type= "Cards"},
                        new Interest{ Id = 6, Interests = "Doing Push-ups", Type= "Exercise"},
+                    },
+                    MemberServices = new List<Service>
+                    {
+                        new Service{ Id = 1, Services = "Shanking a Guard"},
+                        new Service{ Id = 2, Services = "Personal Trainer"},
+                        new Service{ Id = 3, Services = "Manufacturing Weapons"}
                     }
                 },
                 new Member {
@@ -39,6 +51,12 @@ namespace ClinkedIn.DataAccess
                        new Interest{ Id = 4, Interests = "Slam Poetry", Type= "Art"},
                        new Interest{ Id = 7, Interests = "Juggling Shanks", Type= "Entertainment"},
                        new Interest{ Id = 8, Interests = "Community Puppet Shows", Type= "Entertainment"},
+                    },
+                    MemberServices = new List<Service>
+                    {
+                        new Service{ Id = 1, Services = "Laundry"},
+                        new Service{ Id = 2, Services = "Back Massage"},
+                        new Service{ Id = 3, Services = "Shower Assistant"}
                     }
                 }
             };
