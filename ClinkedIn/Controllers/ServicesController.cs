@@ -22,8 +22,6 @@ namespace ClinkedIn.Controllers
         public IActionResult GetServices(int id)
         {
             var clinker = _repo.ListServices(id);
-            //if (clinker == null) return NotFound($"No Clinker with an ID of:{id} exists");
-            //if ( == 0) return NotFound($"{clinker.Name} doesn't have any services available");
             return Ok(clinker);
         }
     }
