@@ -32,6 +32,14 @@ namespace ClinkedIn.Controllers
             _memberRepo.AddAMember(member);
             return Created($"api/Members/{member.InmateId}", member);
         }
+
+        // api/Members/{inmateId}
+        [HttpGet("{inmateId}")]
+        public IActionResult GetASingleMember(int inmateId)
+        {
+
+            return Ok(_memberRepo.GetAMember(inmateId));
+        }
     }
 }
 
