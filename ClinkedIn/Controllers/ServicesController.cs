@@ -8,7 +8,7 @@ using ClinkedIn.DataAccess;
 
 namespace ClinkedIn.Controllers
 {
-    [Route("api/Members")]
+    [Route("api/Services")]
     [ApiController]
     public class ServicesController : ControllerBase
     {
@@ -18,7 +18,7 @@ namespace ClinkedIn.Controllers
             _repo = new ServiceRepository();
         }
 
-        [HttpGet("{id}/services")]
+        [HttpGet("{id}")]
         public IActionResult GetServices(int id)
         {
             var clinkerServices = _repo.ListServices(id);
