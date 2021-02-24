@@ -15,32 +15,23 @@ namespace ClinkedIn.DataAccess
                     Name="Prison Mike",
                     MemberInterests = new List<Interest>
                     {
-                       new Interest{ Id = 1, Interests = "Playing Spades", Type= "Cards"},
-                       new Interest{ Id = 2, Interests = "Playing Solitare", Type= "Cards"},
-                       new Interest{ Id = 3, Interests = "Lifting Weights", Type= "Exercise"},
+                       new Interest{ Id = 1, Interests = "Playing Spades", Type= InterestType.Gaming},
+                       new Interest{ Id = 2, Interests = "Playing Solitare", Type= InterestType.Gaming},
+                       new Interest{ Id = 3, Interests = "Lifting Weights", Type= InterestType.Exercise},
                     },
-                   
+
                 },
                 new Member {
                     InmateId = 2,
                     Name="Martha Stewart",
                     MemberInterests = new List<Interest>
                     {
-                       new Interest{ Id = 4, Interests = "Slam Poetry", Type= "Art"},
-                       new Interest{ Id = 2, Interests = "Playing Solitare", Type= "Cards"},
-                       new Interest{ Id = 6, Interests = "Doing Push-ups", Type= "Exercise"},
-                    }
+                       new Interest{ Id = 4, Interests = "Slam Poetry", Type= InterestType.Arts},
+                       new Interest{ Id = 2, Interests = "Playing Solitare", Type= InterestType.Gaming},
+                       new Interest{ Id = 6, Interests = "Doing Push-ups", Type= InterestType.Exercise,
+                    },
                 },
-                new Member {
-                    InmateId = 3,
-                    Name="Ghosteface Killa",
-                    MemberInterests = new List<Interest>
-                    {
-                       new Interest{ Id = 4, Interests = "Slam Poetry", Type= "Art"},
-                       new Interest{ Id = 7, Interests = "Juggling Shanks", Type= "Entertainment"},
-                       new Interest{ Id = 8, Interests = "Community Puppet Shows", Type= "Entertainment"},
-                    }
-                }
+                },
             };
         
         public List<Member> GetAllMembers()

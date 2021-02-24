@@ -19,6 +19,9 @@ namespace ClinkedIn.Models
         Writing,
         Adventure,
         Gardening,
-        Violence
+        Violence,
+        Exercise,
+        Gaming,
+        Arts
     }
 }
