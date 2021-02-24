@@ -14,8 +14,8 @@ namespace ClinkedIn.Controllers
     [ApiController]
     public class MemberController : ControllerBase
     {
+        
         MemberRepository _memberRepo;
-
         public MemberController()
         {
             _memberRepo = new MemberRepository();

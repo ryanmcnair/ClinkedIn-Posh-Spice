@@ -18,11 +18,12 @@ namespace ClinkedIn.DataAccess
                        new Interest{ Id = 1, Interests = "Playing Spades", Type= "Cards"},
                        new Interest{ Id = 2, Interests = "Playing Solitare", Type= "Cards"},
                        new Interest{ Id = 3, Interests = "Lifting Weights", Type= "Exercise"},
-                    }
+                    },
+                   
                 },
                 new Member {
                     InmateId = 2,
-                    Name="Big Billy Bruno",
+                    Name="Martha Stewart",
                     MemberInterests = new List<Interest>
                     {
                        new Interest{ Id = 4, Interests = "Slam Poetry", Type= "Art"},
@@ -41,7 +42,7 @@ namespace ClinkedIn.DataAccess
                     }
                 }
             };
-
+        
         public List<Member> GetAllMembers()
         {
             return _allMembers;
