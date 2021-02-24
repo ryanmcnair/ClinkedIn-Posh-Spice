@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClinkedIn.DataAccess;
+using ClinkedIn.Models;
+
 
 namespace ClinkedIn.Controllers
 {
@@ -23,6 +25,12 @@ namespace ClinkedIn.Controllers
         public IActionResult GetAllMembers()
         {
             return Ok(_memberRepo.GetAllMembers());
+        }
+        [HttpPost]
+        public IActionResult AddANewMember(Member member)
+        {
+            _memberRepo.AddAMember(member);
+            return Created($"api/Members/{member.InmateId}", member);
         }
     }
 }
