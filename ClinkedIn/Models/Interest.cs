@@ -7,7 +7,6 @@ namespace ClinkedIn.Models
 {
     public class Interest
     {
-
         public int Id { get; set; }
         public string Interests { get; set; }
         public InterestType Type { get; set; }
