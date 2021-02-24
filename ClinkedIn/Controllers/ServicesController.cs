@@ -21,8 +21,8 @@ namespace ClinkedIn.Controllers
         [HttpGet("{id}/services")]
         public IActionResult GetServices(int id)
         {
-            var clinker = _repo.ListServices(id);
-            return Ok(clinker);
+            var clinkerServices = _repo.ListServices(id);
+            return Ok(clinkerServices);
         }
     }
 }
