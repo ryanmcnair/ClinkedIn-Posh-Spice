@@ -50,6 +50,8 @@ namespace ClinkedIn.DataAccess
         {
             var interestToRemove = GetInterestById(id);
         }
+
+        //This funtion takes in a string of the specific interest and return only the names of the inmates that enjoy that interest
         public List<String> GetMemberByInterest(string interest)
         {
             var newInstance = new MemberRepository();
@@ -67,6 +69,8 @@ namespace ClinkedIn.DataAccess
             }
             return membersWithInterest;
         }
+         
+        //This method takes in an enum InterestType and returns the full member Object 
         public IEnumerable<Member> GetMemberByInterest(InterestType interest)
         {
             var newInstance = new MemberRepository();
