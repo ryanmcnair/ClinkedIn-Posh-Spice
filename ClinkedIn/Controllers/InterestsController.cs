@@ -57,5 +57,17 @@ namespace ClinkedIn.Controllers
             return Ok();
         }
 
+        [HttpGet("getMembers/{interest}")]
+        public IActionResult FindByInterest(string interest)
+        {
+            var parsedString = interest.Replace("-", " ");
+            return Ok(_repo.GetMemberByInterest(parsedString));
+        }
+
+        [HttpGet("getMembersByType/{interest}")]
+        public IActionResult FindByInterestType(InterestType interest)
+        {
+            return Ok(_repo.GetMemberByInterest(interest));
+        }
     }
 }
