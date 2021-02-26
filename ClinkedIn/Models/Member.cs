@@ -12,7 +12,7 @@ namespace ClinkedIn.Models
         public string Name { get; set; }
         public List<Interest> MemberInterests { get; set; } = new List<Interest>();
         public List<Service> MemberServices { get; set; } = new List<Service>();
-
+        public List<Member> Friends { get; set; } = new List<Member>();
     }
 }
 
