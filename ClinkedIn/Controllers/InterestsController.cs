@@ -64,7 +64,7 @@ namespace ClinkedIn.Controllers
             return Ok(_repo.GetMemberByInterest(parsedString));
         }
 
-        [HttpGet("getMembersbytype/{interest}")]
+        [HttpGet("getMembersByType/{interest}")]
         public IActionResult FindByInterestType(InterestType interest)
         {
             return Ok(_repo.GetMemberByInterest(interest));
