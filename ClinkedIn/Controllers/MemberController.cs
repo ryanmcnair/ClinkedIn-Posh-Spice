@@ -41,13 +41,12 @@ namespace ClinkedIn.Controllers
         }
 
         //Add A Friend
-        [HttpPut("{id}/add-friend-{friendId}")]
+        [HttpPut("{id}/friends/add/{friendId}")]
         public IActionResult AddFriend(int id, int friendId)
         {
             var clinker = _memberRepo.GetAMember(id);
             var friend = _memberRepo.GetAMember(friendId);
             clinker.Friends.Add(friend);
-            friend.Friends.Add(clinker);
             return Ok($"You have added {friend.Name} as a friend");
         }
 
@@ -62,4 +61,3 @@ namespace ClinkedIn.Controllers
         }
     }
 }
-
