@@ -87,8 +87,13 @@ namespace ClinkedIn.DataAccess
         {
             var member = GetAMember(inmateId);
             var enemy = GetAMember(enemyId);
-            member.Enemies.Add(enemy);
-           
+            member.Enemies.Add(enemy);      
+        }
+        public List<Member> GetEnemies(int inmateId)
+        {
+            var member = GetAMember(inmateId);
+            var listOfEnemies = member.Enemies;
+            return listOfEnemies;
         }
     }
 }
