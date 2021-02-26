@@ -50,7 +50,24 @@ namespace ClinkedIn.DataAccess
         {
             var interestToRemove = GetInterestById(id);
         }
-        public List<Member> GetMemberByInterest(string interest)
+        public List<String> GetMemberByInterest(string interest)
+        {
+            var newInstance = new MemberRepository();
+            var listOfMembers = newInstance.GetAllMembers();
+            var membersWithInterest = new List<string>();
+            foreach (var member in listOfMembers)
+            {
+                foreach (var item in member.MemberInterests)
+                {
+                    if (item.Interests == interest)
+                    {
+                        membersWithInterest.Add(member.Name);
+                    }
+                }
+            }
+            return membersWithInterest;
+        }
+        public IEnumerable<Member> GetMemberByInterest(InterestType interest)
         {
             var newInstance = new MemberRepository();
             var listOfMembers = newInstance.GetAllMembers();
@@ -59,13 +76,14 @@ namespace ClinkedIn.DataAccess
             {
                 foreach (var item in member.MemberInterests)
                 {
-                    if (item.Interests == interest)
+                    if (item.Type == interest)
                     {
                         membersWithInterest.Add(member);
                     }
                 }
             }
-            return membersWithInterest;
+            var distinctValues = membersWithInterest.Distinct();
+            return distinctValues;
         }
     }
 }
