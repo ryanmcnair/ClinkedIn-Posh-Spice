@@ -10,7 +10,7 @@ namespace ClinkedIn.DataAccess
     {
         static List<Interest> _interests = new List<Interest>
         {
-            new Interest() { Id = 1, Interests = "Baking cookies", Type = InterestType.Cooking },
+            new Interest() { Id = 1, Interests = "Baking Cookies", Type = InterestType.Cooking },
             new Interest() { Id = 2, Interests = "Writing childrens books", Type = InterestType.Writing },
             new Interest() { Id = 3, Interests = "Hot air ballooning", Type = InterestType.Adventure },
             new Interest() { Id = 4, Interests = "Having Picnics", Type = InterestType.Adventure },
@@ -49,6 +49,23 @@ namespace ClinkedIn.DataAccess
         public void Remove(int id)
         {
             var interestToRemove = GetInterestById(id);
+        }
+        public List<Member> GetMemberByInterest(string interest)
+        {
+            var newInstance = new MemberRepository();
+            var listOfMembers = newInstance.GetAllMembers();
+            var membersWithInterest = new List<Member>();
+            foreach (var member in listOfMembers)
+            {
+                foreach (var item in member.MemberInterests)
+                {
+                    if (item.Interests == interest)
+                    {
+                        membersWithInterest.Add(member);
+                    }
+                }
+            }
+            return membersWithInterest;
         }
     }
 }

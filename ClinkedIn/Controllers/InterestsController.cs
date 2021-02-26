@@ -35,18 +35,18 @@ namespace ClinkedIn.Controllers
             return Created($"api/interests/{interest.Id}", interest);
         }
 
-        //GET to /api/interests/{type}
-        [HttpGet("{type}")]
-        public IActionResult GetByType(InterestType type)
-        {
-            var interest = _repo.GetInterestByType(type);
+        ////GET to /api/interests/{type}
+        //[HttpGet("{type}")]
+        //public IActionResult GetByType(InterestType type)
+        //{
+        //    var interest = _repo.GetInterestByType(type);
 
-            if (interest == null)
-            {
-                return NotFound("Not found");
-            }
-            return Ok(interest);
-        }
+        //    if (interest == null)
+        //    {
+        //        return NotFound("Not found");
+        //    }
+        //    return Ok(interest);
+        //}
 
         //DELETE /api/interests/{Id}
         [HttpDelete("{Id}")]
@@ -57,5 +57,11 @@ namespace ClinkedIn.Controllers
             return Ok();
         }
 
+        [HttpGet("{interest}")]
+        public IActionResult FindByInterest(string interest)
+        {
+            var parsedString = interest.Replace("-", " ");
+            return Ok(_repo.GetMemberByInterest(parsedString));
+        }
     }
 }
