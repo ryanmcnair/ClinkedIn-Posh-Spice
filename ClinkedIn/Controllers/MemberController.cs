@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -58,6 +58,31 @@ namespace ClinkedIn.Controllers
             if (clinker == null) return NotFound($"There is no clinker with an id of: {id}");
             if (clinker.Friends.Count == 0) return NotFound($"{clinker.Name} has no friends... What a loser!");
             return Ok(clinker.Friends);
+        }
+
+        //PUT enemies
+        [HttpPut("{inmateId}/enemies/add/{enemyId}")]
+        public IActionResult AddEnemy(int inmateId, int enemyId)
+        {
+            var member = _memberRepo.GetAMember(inmateId);
+            _memberRepo.AddEnemy(inmateId, enemyId);
+            return Ok(member.Enemies);
+        }
+
+        // GET enemies
+        [HttpGet("{inmateId}/enemies")]
+        public IActionResult GetEnemies(int inmateId)
+        {
+            var member = _memberRepo.GetAMember(inmateId);
+            if (member == null)
+            {
+                return NotFound("Not found");
+            }
+            else if (member.Enemies.Count == 0)
+            {
+                return NotFound("Not found");
+            }
+            return Ok(member.Enemies);
         }
     }
 }
