@@ -56,7 +56,7 @@ namespace ClinkedIn.DataAccess
                         new Service{ Id = 1, Services = "Laundry"},
                         new Service{ Id = 2, Services = "Back Massage"},
                         new Service{ Id = 3, Services = "Shower Assistant"}
-                    }
+                    },
                 },
             };
         
@@ -81,6 +81,14 @@ namespace ClinkedIn.DataAccess
         {
             var memberToRemove = GetAMember(id);
             _allMembers.Remove(memberToRemove);
+        }
+
+        public void AddEnemy(int inmateId, int enemyId)
+        {
+            var member = GetAMember(inmateId);
+            var enemy = GetAMember(enemyId);
+            member.Enemies.Add(enemy);
+           
         }
     }
 }
