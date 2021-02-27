@@ -25,6 +25,7 @@ namespace ClinkedIn.DataAccess
                         new Service{ Id = 2, Services = "Creating blood"},
                         new Service{ Id = 3, Services = "Starting Fight"}
                     },
+                    Sentence = 420,
                 },
                 new Member {
                     InmateId = 2,
@@ -40,7 +41,8 @@ namespace ClinkedIn.DataAccess
                         new Service{ Id = 1, Services = "Shanking a Guard"},
                         new Service{ Id = 2, Services = "Personal Trainer"},
                         new Service{ Id = 3, Services = "Manufacturing Weapons"}
-                    }
+                    },
+                    Sentence = 200,
                 },
                 new Member {
                     InmateId = 3,
@@ -57,6 +59,7 @@ namespace ClinkedIn.DataAccess
                         new Service{ Id = 2, Services = "Back Massage"},
                         new Service{ Id = 3, Services = "Shower Assistant"}
                     },
+                    Sentence = 404,
                 },
             };
         

@@ -25,11 +25,5 @@ namespace ClinkedIn.Controllers
         {
             return Ok(_memberRepo.GetAllMembers());
         }
-        [HttpPost]
-        public IActionResult AddANewMember(Member member)
-        {
-            _memberRepo.AddAMember(member);
-            return Created($"api/Members/{member.InmateId}", member);
-        }
     }
 }
