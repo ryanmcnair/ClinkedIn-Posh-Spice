@@ -82,7 +82,6 @@ I want to update and remove pieces of information, like interests and services
 
 So that as I evolve as a person I can let everyone know
 
-Route to update interests: api/interest/getMembers/{id}/{interest}
 #
 As a Warden
 
