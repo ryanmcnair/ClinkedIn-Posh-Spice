@@ -84,5 +84,13 @@ namespace ClinkedIn.Controllers
             }
             return Ok(member.Enemies);
         }
+
+        //Get Days Remaining on Sentence
+        [HttpGet("{id}/sentence")]
+        public IActionResult GetRemainingDays(int id)
+        {
+            var clinker = _memberRepo.GetAMember(id);
+            return Ok($"Sentence: {clinker.Sentence} day(s) left");
+        }
     }
 }
