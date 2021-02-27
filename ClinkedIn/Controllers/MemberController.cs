@@ -84,6 +84,14 @@ namespace ClinkedIn.Controllers
             }
             return Ok(member.Enemies);
         }
+        
+        // GET all Friends of Friends
+        [HttpGet("getAllFriends/{id}")]
+        public IActionResult GetAllFriends(int id)
+        {
+           var friendsOfFriends = _memberRepo.GetFriendsOfFriends(id);
+           return Ok(friendsOfFriends);
+        }
 
         //Get Days Remaining on Sentence
         [HttpGet("{id}/sentence")]

@@ -90,8 +90,30 @@ namespace ClinkedIn.DataAccess
         {
             var member = GetAMember(inmateId);
             var enemy = GetAMember(enemyId);
-            member.Enemies.Add(enemy);
-           
+            member.Enemies.Add(enemy);      
+        }
+
+        public List<Member> GetFriends(int inmateId)
+        {
+            var member = GetAMember(inmateId);
+            var listOfFriends = member.Friends;
+            return listOfFriends;
+        }
+        public IEnumerable<string> GetFriendsOfFriends(int inmateId)
+        {
+            var listOfAllFriends = new List<string>();
+            var friendsOfInmate = GetFriends(inmateId);
+            foreach (var member in friendsOfInmate)
+            {
+                var listOfIteratingFriend = GetFriends(member.InmateId);
+                foreach (var memberName in listOfIteratingFriend)
+                {
+                    listOfAllFriends.Add(memberName.Name);
+                }
+            }
+            var noDuplicates = listOfAllFriends.Distinct();
+
+            return noDuplicates;
         }
     }
 }
