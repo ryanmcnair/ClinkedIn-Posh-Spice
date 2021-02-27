@@ -96,14 +96,17 @@ namespace ClinkedIn.DataAccess
             var listOfFriends = member.Friends;
             return listOfFriends;
         }
-        public IEnumerable<Member> GetFriendsOfFriends(int inmateId)
+        public IEnumerable<string> GetFriendsOfFriends(int inmateId)
         {
-            var listOfAllFriends = new List<Member>();
+            var listOfAllFriends = new List<string>();
             var friendsOfInmate = GetFriends(inmateId);
             foreach (var member in friendsOfInmate)
             {
                 var listOfIteratingFriend = GetFriends(member.InmateId);
-                listOfAllFriends.AddRange(listOfAllFriends);
+                foreach (var memberName in listOfIteratingFriend)
+                {
+                    listOfAllFriends.Add(memberName.Name);
+                }
             }
             var noDuplicates = listOfAllFriends.Distinct();
 
