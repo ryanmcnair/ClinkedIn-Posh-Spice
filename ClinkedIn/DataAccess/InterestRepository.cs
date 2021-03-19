@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClinkedIn.Models;
+using Dapper;
+using Microsoft.Data.SqlClient;
 
 namespace ClinkedIn.DataAccess
 {
@@ -22,16 +24,38 @@ namespace ClinkedIn.DataAccess
             new Interest() { Id = 10, Interests = "Stabbing things", Type = InterestType.Violence }
         };
 
+        const string ConnectionString = "Server=localhost;Database=ClinkedIn;Trusted_Connection=True";
+
         public List<Interest> GetAll()
         {
-            return _interests;
+            var interests = new List<Interest>();
+
+            using var db = new SqlConnection(ConnectionString);
+
+            var sql = @"Select *
+                        From Interest";
+
+            var results = db.Query<Interest>(sql).ToList();
+
+            return results;
         }
 
         public void Add (Interest interest)
         {
+            using var db = new SqlConnection(ConnectionString);
+
+            var sql = @"INSERT INTO [interest]([interests],[interestType])
+                        OUTPUT inserted.Id
+                        VALUES (@interests, @type)";
+
+            var id = db.ExecuteScalar<int>(sql, interest);
+
+            interest.Id = id;
+
+            /*
             var newIdNumber = _interests.Max(l => l.Id);
             interest.Id = newIdNumber + 1;
-            _interests.Add(interest);
+            _interests.Add(interest); */
         }
 
         public Interest GetInterestById(int id)
